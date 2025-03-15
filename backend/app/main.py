@@ -1,25 +1,14 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from .routes import auth, locations, users, interactions, websocket
+from app.routes import locations, auth, users, interactions
 
-app = FastAPI(title="Hidden Gem Explorer API")
+app = FastAPI()
 
-# CORS middleware configuration
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# Include all routers
-app.include_router(auth.router)
-app.include_router(locations.router)
-app.include_router(users.router)
-app.include_router(interactions.router)
-app.include_router(websocket.router)
+# Register API Routes
+app.include_router(locations.router, prefix="/api/locations")
+app.include_router(auth.router, prefix="/api/auth")
+app.include_router(users.router, prefix="/api/users")
+app.include_router(interactions.router, prefix="/api/interactions")
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Hidden Gem Explorer API"}
+    return {"message": "Hidden Gem Explorer API is running!"}
