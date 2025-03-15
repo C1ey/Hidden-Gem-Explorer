@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -20,7 +19,23 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Virtual Environment
 .env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Node
 node_modules/
@@ -30,11 +45,4 @@ yarn-error.log*
 .env.local
 .env.development.local
 .env.test.local
-.env.production.local
-
-# IDEs and editors
-.idea/
-.vscode/
-*.swp
-*.swo
-.DS_Store 
+.env.production.local 

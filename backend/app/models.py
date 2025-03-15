@@ -3,9 +3,6 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import JSONB
 from app.database import Base
 import datetime
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
 
 class User(Base):
     __tablename__ = "users"
